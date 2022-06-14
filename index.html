@@ -245,15 +245,20 @@
     </section>
     <section class="slide">
         <h2>Solid-OIDC 0.1.0: User-Managed Access 2.0</h2>
+        <div class="columns" style="grid-template-columns: 1.5fr .2fr;">
         <ul>
             <b><a href="https://docs.kantarainitiative.org/uma/wg/rec-oauth-uma-grant-2.0.html">User-Managed Access 2.0</a></b>
             <li>Defines a grant type for OAuth 2.0</li>
             <li>Enables party-to-party authorization, asynchronously</li>
             <b><a href="https://solid.github.io/solid-oidc/#resource">Relation to Solid</a></b>
             <li><em>Currently:</em> Solid Pod is taking on a dual role</li>
-            <li>UMA allows for decoupling of authorization from data storage</li>
-            <li>Authorization Service introduced in Solid-OIDC 0.1.0</li>
+            <li>Decoupling of authorization from data storage</li>
+            <li>UMA 2.0 Authorization Service in Solid-OIDC 0.1.0</li>
         </ul>
+        <img width="300" src="media/uma-flow.svg" />
+        </div>
+        <img class="place bottom right logo-slide" src="media/logo_ugent_en.svg" alt="Ghent University">
+
     </section>
 
 
@@ -403,6 +408,54 @@
     <section class="slide">
         <h2>Implementation</h2>
         <!-- Highlight modular UMA AS, CSS support, SAI Authorization-->
+        <ul><li>Modifications to the Community Solid Server to support UMA 2.0</li>
+            <li>Implementation of a <b>modular</b> UMA 2.0 Authorization Service<ul>
+                <li>Using <a href="https://componentsjs.readthedocs.io/">Components.JS</a> Dependency Injection</li>
+                <li>Capable of supporting any type of authentication &amp; authorization mechanism</li>
+            </ul></li>
+            <li>Development of authorization logic based on the Application Interoperability specification<ul>
+                <li>Enabling <b>"Shape Tree"-based authorization</b></li>
+            </ul></li>
+            <li>
+                Completed by an Authorization Agent allowing for <b>Data Discovery</b>
+            </li>
+    </ul>
+    <img class="place bottom right logo-slide" src="media/logo_ugent_en.svg" alt="Ghent University">
+    </section>
+    <section class="slide">
+        <h2>Side note: Performance overhead of UMA</h2>
+        <div style="text-align: center;">
+        <img src="media/plots_wac_uma.png" height="350" /><br />
+        <small>Experiment run on CSS v4.0.1 / Node.JS 16.4.0 over 250 requests comparing pass-through UMA Authorization to WAC</small>
+    </div>
+        <img class="place bottom right logo-slide" src="media/logo_ugent_en.svg" alt="Ghent University">
+    </section>
+    <section class="slide">
+        <h2>Performance of SAI Authorization</h2>
+        <div style="text-align: center;">
+        <img src="media/plots.png" height="350" /><br />
+        <small>Limited experiment run on CSS v4.0.1 / Node.JS 16.4.0 over 250 requests</small>
+    </div>
+        <img class="place bottom right logo-slide" src="media/logo_ugent_en.svg" alt="Ghent University">
+    </section>
+    <section class="slide">
+        <h2>Bottlenecks in our implementation</h2>
+        <ul>
+            <li>Scope of UMA Access Tokens<ul>
+                <li><b>Could be expanded</b> to amortize overhead</li>
+                <li><b>At expense of security</b></li>
+            </ul></li>
+            <li>Authorization is based on containment<ul>
+                <li>Access Grant must be retrieved to determine Data Grants</li>
+            </ul></li>
+            <li>Cacheability of auxiliary data structures
+                <ul>
+                    <li>Increase in request latency at Data Instance level</li>
+                </ul>
+            </li>
+        </ul>
+        <img class="place bottom right logo-slide" src="media/logo_ugent_en.svg" alt="Ghent University">
+
     </section>
 
     <section class="slide">
@@ -448,6 +501,8 @@
             </ul>
             </li>
         </ul>
+        <img class="place bottom right logo-slide" src="media/logo_ugent_en.svg" alt="Ghent University">
+
         </section>
 
     <section class="slide">
@@ -466,14 +521,15 @@
     </section>
 
     <section class="slide">
-        <h2>A Policy-Oriented Architecture for Enforcing Consent in Solid</h2>
+        <h2>Enforcing Data Protection in Solid:<br/> A Policy-Oriented Architecture</h2>
         <div class="columns two">
             <p><b>Laurens Debackere</b></br>
-                <em>IDLab, Department of Electronics and Information Systems, Ghent University - imec</em><br />
+                <em>Ghent University - imec</em><br />
+                <em>Digital Flanders - MAGDA Team</em><br />
                 <b>Mail:</b> Laurens.Debackere@Vlaanderen.be
             </p>
             <p><b>Slides available online at:</b><br /> <a
-                    href="https://laurensdeb.github.io/slides-2022-PIDSKG/">github.com/laurensdeb/consent-22-slides</a>
+                    href="https://laurensdeb.github.io/slides-2022-PIDSKG/">laurensdeb.github.io/slides-2022-PIDSKG/</a>
                 <span>
                     <img src="media/logo_ugent_en.svg" height="70" style="padding-right: 50px; padding-top: 20px;" />
                     <img src="media/imec.svg" height="50" style="padding-bottom: 10px" />
