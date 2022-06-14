@@ -406,7 +406,7 @@
     </section>
 
     <section class="slide">
-        <h2 class="unset-margin-bottom">Discussion</h2>
+        <h2 class="unset-margin-bottom">Discussion: Architecture</h2>
         <ul>
             <li>Avoids introduction of legal or business concepts into low-level authorization mechanism
                 <ul>
@@ -428,6 +428,27 @@
         </ul>
         <img class="place bottom right logo-slide" src="media/logo_ugent_en.svg" alt="Ghent University">
     </section>
+
+    
+    <section class="slide">
+        <h2 class="unset-margin-bottom">Discussion: Implementation</h2>
+        <ul>
+            <li>Limited to current Application Interoperability specification
+                <ul>
+                    <li><b>Lacks formal specification</b> for some interactions with Authorization Agent</li>
+                </ul>
+            </li>
+            <li>Introduction of UMA 2.0<ul>
+                <li>Allows for <b>cleaner separation of concerns</b></li>
+                <li>At the cost of <b>additional request latency</b></li>
+                <li>Could have significant impact in other areas as well.</li>
+            </ul></li>
+            <li>Authorizations based on SAI<ul>
+                <li>Technically feasible, however performance is heavily dependent on amount of data</li>
+            </ul>
+            </li>
+        </ul>
+        </section>
 
     <section class="slide">
         <h2>Conclusion</h2>
